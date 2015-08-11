@@ -1,0 +1,81 @@
+#include<stdio.h>
+
+void quickSort(int[], int, int);
+int partition(int[], int, int);
+
+
+void main()
+{
+	int a[50];
+	int i, n;
+
+	printf("Enter the number of elements you want to enter = ");
+	scanf("%d", &n);
+
+	printf("\nEnter %d elements:\n", n);
+
+	for(i = 0; i < n; i++){
+		printf("Element %d: ", i + 1);
+		scanf("%d", &a[i]);
+	}
+
+	printf("\n\nUnsorted array is:  ");
+	for(i = 0; i < n; ++i)
+		printf(" %d ", a[i]);
+
+	quickSort( a, 0, n-1);
+
+	printf("\n\nSorted array is:  ");
+	for(i = 0; i < n; ++i)
+		printf(" %d ", a[i]);
+
+}
+
+
+
+void quickSort( int a[], int l, int r)
+{
+	int j;
+
+	if( l < r )
+	{
+
+		 j = partition( a, l, r);
+		 quickSort( a, l, j-1);
+		 quickSort( a, j+1, r);
+	}
+
+}
+
+
+
+int partition( int a[], int l, int r) {
+	int pivot, i, j, t;
+	pivot = a[l];
+	i = l;
+	j = r;
+
+	while(i < j)
+	{
+		while( a[i] <= pivot && i < r ){
+			++i;
+		}
+
+		while( a[j] > pivot ){
+			--j;
+		}
+
+		if( i >= j ){
+			break;
+		}
+		t = a[i];
+		a[i] = a[j];
+		a[j] = t;
+	}
+	t = a[l];
+	a[l] = a[j];
+	a[j] = t;
+
+	return j;
+}
+
