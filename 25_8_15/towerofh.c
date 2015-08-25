@@ -1,0 +1,19 @@
+#include<stdio.h>
+void towerRecursion(int num, char beg, char aux, char end){
+	if(num == 1){
+		printf("\n%c to %c\n", beg, end);
+	} else {
+		towerRecursion(num - 1, beg, end, aux);
+		towerRecursion(1, beg, aux, end);
+		towerRecursion(num - 1, aux, beg, end);
+	}
+}
+
+void main(){
+	int n;
+	printf("Enter the number of disks = ");
+	scanf("%d", &n);
+	towerRecursion(n, 'A', 'B', 'C');
+}
+
+
