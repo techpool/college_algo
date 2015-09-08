@@ -38,25 +38,25 @@ void main()
 		v=find(v);
 		if(uni(u,v))
 		{
-			printf("%d edge (%d,%d) =%d\n",ne++,a,b,min);
-			mincost +=min;
+			printf("%d edge (%d,%d) =%d\n", ne++, a, b, min);
+			mincost += min;
 		}
 		cost[a][b]=cost[b][a]=999;
 	}
-	printf("\nMinimum cost = %d\n",mincost);
+	printf("\nMinimum cost = %d\n", mincost);
 }
 
 int find(int i)
 {
-	while(parent[i])
-	i=parent[i];
+	while(parent[i]){
+		i=parent[i];
+	}
 	return i;
 }
 
 int uni(int i,int j)
 {
-	if(i!=j)
-	{
+	if(i!=j){
 		parent[j]=i;
 		return 1;
 	}
