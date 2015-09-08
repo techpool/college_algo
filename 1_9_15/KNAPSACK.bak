@@ -1,6 +1,7 @@
 #include<stdio.h>
 void knapsack(int n, float weight[], float profit[], float capacity){
 
+	int i;
 	float x[20];
 	float c = capacity, tp = 0.0;
 
@@ -15,7 +16,7 @@ void knapsack(int n, float weight[], float profit[], float capacity){
 		} else {
 			x[i] = 1.0;
 			tp = tp + profit[i];
-			c = c - weight[i]
+			c = c - weight[i];
 		}
 	}
 
@@ -36,7 +37,7 @@ void knapsack(int n, float weight[], float profit[], float capacity){
 
 void main(){
 	int n, i, j;
-	float weights[20], profit[20], capacity;
+	float weights[20], profit[20], ratio[20], capacity, temp;
 	printf("Enter the number of items you have: ");
 	scanf("%d", &n);
 
